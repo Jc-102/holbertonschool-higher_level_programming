@@ -68,3 +68,36 @@ Set:
     Traceback (most recent call last):
     ...
     TypeError: age must be an integer
+
+Infinity:
+    >>> bg.integer_validator("age", float('inf'))
+    Traceback (most recent call last):
+    ...
+    TypeError: age must be an integer
+
+Big integer:
+    >>> bg.integer_validator("big", 10 ** 50)
+
+Missing value:
+    >>> bg.integer_validator("age") # doctest: +ELLIPSIS
+    Traceback (most recent call last):
+    ...
+    TypeError: ...integer_validator() missing 1 required positional argument: 'value'
+
+Missing both arguments:
+    >>> bg.integer_validator() # doctest: +ELLIPSIS
+    Traceback (most recent call last):
+    ...
+    TypeError: ...integer_validator() missing 2 required positional arguments: 'name' and 'value'
+
+Too many arguments:
+    >>> bg.integer_validator("a", 1, 2) # doctest: +ELLIPSIS
+    Traceback (most recent call last):
+    ...
+    TypeError: ...integer_validator() takes 3 positional arguments but 4 were given
+
+area() takes no arguments:
+    >>> bg.area(5) # doctest: +ELLIPSIS
+    Traceback (most recent call last):
+    ...
+    TypeError: ...area() takes 1 positional argument but 2 were given
