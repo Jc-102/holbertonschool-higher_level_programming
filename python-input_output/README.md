@@ -1,0 +1,1 @@
+This directory  contains tasks about input and output
